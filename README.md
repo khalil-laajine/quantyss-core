@@ -1,7 +1,8 @@
 # Quantyss Core
 
 Plugin WordPress sur mesure pour [quantyss.com](https://quantyss.com).  
-Développé et maintenu par Khalil LAAJINE (https://novasiteweb.fr).
+Développé et maintenu par Khalil Laajine(https://novasiteweb.fr).
+>>>>>>> 76a018b (feat: add Elementor native widget for posts slider)
 
 ## Description
 

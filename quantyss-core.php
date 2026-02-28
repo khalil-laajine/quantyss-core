@@ -20,3 +20,8 @@ define('QUANTYSS_URL',  plugin_dir_url(__FILE__));
 // Chargement des modules
 require_once QUANTYSS_PATH . 'includes/enqueue.php';
 require_once QUANTYSS_PATH . 'includes/slider.php';
+
+// Elementor — chargé uniquement si Elementor est actif
+if (did_action('elementor/loaded')) {
+    require_once QUANTYSS_PATH . 'includes/elementor/elementor-init.php';
+}

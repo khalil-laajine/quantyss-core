@@ -1,0 +1,15 @@
+# WordPress
+wp-config.php
+wp-content/uploads/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Dependencies
+node_modules/
+vendor/

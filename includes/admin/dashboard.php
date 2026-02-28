@@ -115,7 +115,30 @@ function quantyss_render_dashboard() {
     ?>
 
     <div class="wrap qd-wrap">
-
+        // Bouton génération manuelle
+$last_report = get_option('quantyss_last_report');
+?>
+<div style="background:#fff;border-radius:12px;padding:20px 24px;box-shadow:0 1px 4px rgba(0,0,0,.08);margin-bottom:24px;display:flex;align-items:center;gap:16px;">
+    <div style="flex:1;">
+        <strong>Rapport mensuel automatique</strong>
+        <p style="margin:4px 0 0;color:#6b7280;font-size:13px;">
+            <?php if ($last_report) : ?>
+                Dernier rapport : <strong><?php echo esc_html($last_report['month']); ?></strong>
+                — généré le <?php echo date('d/m/Y', strtotime($last_report['date'])); ?>
+            <?php else : ?>
+                Aucun rapport généré pour l'instant.
+            <?php endif; ?>
+        </p>
+    </div>
+    <form method="post">
+        <?php wp_nonce_field('quantyss_manual_report'); ?>
+        <button type="submit" name="quantyss_generate_report"
+                style="padding:10px 20px;background:#6366f1;color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;">
+            📊 Générer maintenant
+        </button>
+    </form>
+</div>
+<?php
         <!-- En-tête -->
         <div class="qd-header">
             <div class="qd-header__logo">Q</div>

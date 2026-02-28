@@ -1,7 +1,7 @@
 # Quantyss Core
 
 Plugin WordPress sur mesure pour [quantyss.com](https://quantyss.com).  
-Développé et maintenu par [Ton Nom](https://tonsite.com).
+Développé et maintenu par Khalil LAAJINE (https://novasiteweb.fr).
 
 ## Description
 

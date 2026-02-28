@@ -70,3 +70,29 @@ require_once QUANTYSS_PATH . 'includes/tools/security-logs.php';
 require_once QUANTYSS_PATH . 'includes/tools/performance.php';
 require_once QUANTYSS_PATH . 'includes/tools/seo.php';
 require_once QUANTYSS_PATH . 'includes/tools/uptime.php';
+
+require_once QUANTYSS_PATH . 'includes/tools/lead-magnet.php';
+require_once QUANTYSS_PATH . 'includes/admin/lead-magnet-admin.php';
+
+// Table tokens — à ajouter dans quantyss_create_leads_table()
+function quantyss_create_magnet_table() {
+    global $wpdb;
+    $table   = $wpdb->prefix . 'quantyss_magnet_tokens';
+    $charset = $wpdb->get_charset_collate();
+
+    $sql = "CREATE TABLE IF NOT EXISTS $table (
+        id         BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+        email      VARCHAR(150) NOT NULL,
+        token      VARCHAR(64)  NOT NULL,
+        magnet_id  BIGINT(20)   NOT NULL,
+        downloaded TINYINT(1)   DEFAULT 0,
+        expires_at DATETIME     NOT NULL,
+        created_at DATETIME     DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (id),
+        UNIQUE KEY token (token)
+    ) $charset;";
+
+    require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+    dbDelta($sql);
+}
+add_action('quantyss_plugin_activated', 'quantyss_create_magnet_table');

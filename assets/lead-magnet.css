@@ -1,0 +1,123 @@
+/* Bouton dans les articles */
+.qlm-cta-block {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, #ede9fe, #e0e7ff);
+    border-radius: 12px;
+    border-left: 4px solid #6366f1;
+    margin: 32px 0;
+    flex-wrap: wrap;
+}
+.qlm-cta-block__icon  { font-size: 36px; }
+.qlm-cta-block__content { flex: 1; min-width: 180px; }
+.qlm-cta-block__content strong { display: block; font-size: 16px; color: #1e1b4b; }
+.qlm-cta-block__content span   { font-size: 13px; color: #6b7280; }
+.qlm-cta-block__btn {
+    padding: 10px 20px;
+    background: #6366f1;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    white-space: nowrap;
+    transition: background .2s;
+}
+.qlm-cta-block__btn:hover { background: #4f46e5; color: #fff; }
+
+/* Formulaire */
+.qlm-form {
+    max-width: 520px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(99,102,241,.12);
+    overflow: hidden;
+}
+.qlm-form__header {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    padding: 36px 32px;
+    text-align: center;
+    color: #fff;
+}
+.qlm-form__badge {
+    display: inline-block;
+    background: rgba(255,255,255,.2);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .05em;
+    margin-bottom: 12px;
+}
+.qlm-form__header h2 { margin: 0 0 8px; font-size: 22px; }
+.qlm-form__header p  { margin: 0; opacity: .85; font-size: 14px; }
+
+.qlm-form__body { padding: 32px; }
+.qlm-field { margin-bottom: 20px; }
+.qlm-field label {
+    display: block;
+    font-weight: 600;
+    font-size: 13px;
+    color: #374151;
+    margin-bottom: 8px;
+}
+.qlm-field input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color .2s;
+    box-sizing: border-box;
+}
+.qlm-field input:focus { outline: none; border-color: #6366f1; }
+
+.qlm-btn {
+    width: 100%;
+    padding: 14px;
+    background: #6366f1;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s;
+}
+.qlm-btn:hover { background: #4f46e5; }
+
+.qlm-privacy {
+    text-align: center;
+    font-size: 12px;
+    color: #9ca3af;
+    margin: 12px 0 0;
+}
+
+/* Succès */
+.qlm-form--success {
+    padding: 48px 32px;
+    text-align: center;
+}
+.qlm-success-icon { font-size: 56px; margin-bottom: 16px; }
+.qlm-form--success h2 { margin: 0 0 12px; color: #1e1b4b; }
+.qlm-form--success p  { color: #6b7280; line-height: 1.6; }
+.qlm-hint { font-size: 13px; color: #9ca3af; }
+```
+
+---
+
+**Comment l'utiliser**
+
+**Étape 1** — Va dans **Quantyss → Lead Magnets**, crée un magnet avec le titre, le sous-titre, et uploade le PDF quand il sera prêt.
+
+**Étape 2** — Crée une page WordPress "Télécharger notre guide GTM" et mets le shortcode :
+```
+[lead_magnet_form id="1"]
+```
+
+**Étape 3** — Dans chaque article de blog pertinent, ajoute le bouton :
+```
+[lead_magnet id="1" label="Télécharger le guide GTM gratuit"]

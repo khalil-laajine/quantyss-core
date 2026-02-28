@@ -65,3 +65,8 @@ function quantyss_create_leads_table() {
 
 require_once QUANTYSS_PATH . 'includes/leads-handler.php';
 require_once QUANTYSS_PATH . 'includes/admin/leads.php';
+
+require_once QUANTYSS_PATH . 'includes/tools/security-logs.php';
+require_once QUANTYSS_PATH . 'includes/tools/performance.php';
+require_once QUANTYSS_PATH . 'includes/tools/seo.php';
+require_once QUANTYSS_PATH . 'includes/tools/uptime.php';

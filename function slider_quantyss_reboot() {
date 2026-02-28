@@ -1,0 +1,73 @@
+function slider_quantyss_reboot() {
+    $current_lang = (function_exists('pll_current_language')) ? pll_current_language() : 'fr';
+    
+    $args = array(
+        'post_type'      => 'post',
+        'posts_per_page' => 6,
+        'post_status'    => 'publish',
+        'lang'           => $current_lang
+    );
+
+    $query = new WP_Query($args);
+    if (!$query->have_posts()) return "";
+
+    ob_start(); ?>
+    
+    <div class="q-container">
+        <div class="swiper q-slider">
+            <div class="swiper-wrapper">
+                <?php while ($query->have_posts()) : $query->the_post(); ?>
+                    <div class="swiper-slide">
+                        <div class="q-card">
+                            <div class="q-img">
+                                <?php if (has_post_thumbnail()) : the_post_thumbnail('medium'); endif; ?>
+                            </div>
+                            <div class="q-content">
+                                <span class="q-date"><?php echo get_the_date(); ?></span>
+                                <h3><?php the_title(); ?></h3>
+                                <a href="<?php the_permalink(); ?>" class="q-btn">Lire la suite →</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endwhile; wp_reset_postdata(); ?>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        var loadSwiper = function() {
+            if (window.Swiper) {
+                new Swiper('.q-slider', {
+                    slidesPerView: 1.2,
+                    spaceBetween: 20,
+                    loop: true,
+                    pagination: { el: '.swiper-pagination', clickable: true },
+                    breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+                });
+            } else {
+                setTimeout(loadSwiper, 100);
+            }
+        };
+
+        if (!document.getElementById('swiper-js')) {
+            var s = document.createElement('script');
+            s.id = 'swiper-js';
+            s.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
+            var l = document.createElement('link');
+            l.rel = 'stylesheet';
+            l.href = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css';
+            document.head.appendChild(l);
+            document.head.appendChild(s);
+            s.onload = loadSwiper;
+        } else {
+            loadSwiper();
+        }
+    })();
+    </script>
+
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('slider_quantyss_reboot', 'slider_quantyss_reboot');

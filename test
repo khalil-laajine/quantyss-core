@@ -1,0 +1,64 @@
+/* Container principal de la grille *!important
+.quantyss-expertise-grid {
+    display: grid;
+    grid-template-columns: 2fr; /* Par défaut : 1 colonne (mobile) */
+    gap: 30px;
+    padding: 20px 0;
+}
+
+/* Styles pour chaque item de la grille */
+.expertise-item {
+    display: flex;
+    align-items: flex-start;
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+/* Effet au survol */
+.expertise-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-left:4px solid #00AEEF; /* Bleu Quantyss au survol */
+    padding:0 20px;
+}
+
+/* Container de l'icône */
+.icon-container {
+    color: #00AEEF; /* Bleu Quantyss */
+    font-size: 2rem;
+    margin-right: 20px;
+    flex-shrink: 0;
+    margin-top: 5px;
+}
+
+/* Container du texte */
+.text-container h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #1a1a1a;
+}
+
+.text-container p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Responsivité : Passage à 2 colonnes sur tablette/petit desktop */
+@media (min-width: 768px) {
+    .quantyss-expertise-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Responsivité : Passage à 3 colonnes sur grand desktop */
+@media (min-width: 1024px) {
+    .quantyss-expertise-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

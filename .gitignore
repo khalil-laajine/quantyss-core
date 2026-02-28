@@ -17,3 +17,6 @@ vendor/
 # Sécurité : clé API
 Google Analytics
 cle-google.json
+
+vendor/
+composer.lock

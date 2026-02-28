@@ -28,3 +28,10 @@ if (did_action('elementor/loaded')) {
 
 // Dashboard Admin
 require_once QUANTYSS_PATH . 'includes/admin/dashboard.php';
+
+// Composer autoload
+if (file_exists(QUANTYSS_PATH . 'vendor/autoload.php')) {
+    require_once QUANTYSS_PATH . 'vendor/autoload.php';
+}
+
+require_once QUANTYSS_PATH . 'includes/admin/stats.php';

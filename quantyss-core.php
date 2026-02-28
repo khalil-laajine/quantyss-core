@@ -98,3 +98,10 @@ function quantyss_create_magnet_table() {
 add_action('quantyss_plugin_activated', 'quantyss_create_magnet_table');
 
 require_once QUANTYSS_PATH . 'includes/tools/monthly-report.php';
+
+require_once QUANTYSS_PATH . 'includes/golden-circle.php';
+```
+
+**4.** Dans WordPress, place le shortcode là où tu veux :
+```
+[golden_circle]

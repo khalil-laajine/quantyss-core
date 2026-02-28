@@ -13,3 +13,7 @@ Thumbs.db
 # Dependencies
 node_modules/
 vendor/
+
+# Sécurité : clé API
+Google Analytics
+cle-google.json

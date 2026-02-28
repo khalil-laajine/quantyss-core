@@ -96,3 +96,5 @@ function quantyss_create_magnet_table() {
     dbDelta($sql);
 }
 add_action('quantyss_plugin_activated', 'quantyss_create_magnet_table');
+
+require_once QUANTYSS_PATH . 'includes/tools/monthly-report.php';

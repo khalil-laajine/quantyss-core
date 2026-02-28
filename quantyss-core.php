@@ -25,3 +25,6 @@ require_once QUANTYSS_PATH . 'includes/slider.php';
 if (did_action('elementor/loaded')) {
     require_once QUANTYSS_PATH . 'includes/elementor/elementor-init.php';
 }
+
+// Dashboard Admin
+require_once QUANTYSS_PATH . 'includes/admin/dashboard.php';

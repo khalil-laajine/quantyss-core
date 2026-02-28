@@ -35,3 +35,33 @@ if (file_exists(QUANTYSS_PATH . 'vendor/autoload.php')) {
 }
 
 require_once QUANTYSS_PATH . 'includes/admin/stats.php';
+
+register_activation_hook(__FILE__, 'quantyss_create_leads_table');
+
+function quantyss_create_leads_table() {
+    global $wpdb;
+    $table = $wpdb->prefix . 'quantyss_leads';
+    $charset = $wpdb->get_charset_collate();
+
+    $sql = "CREATE TABLE IF NOT EXISTS $table (
+        id            BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+        first_name    VARCHAR(100) NOT NULL,
+        last_name     VARCHAR(100) NOT NULL,
+        email         VARCHAR(150) NOT NULL,
+        phone         VARCHAR(30)  DEFAULT '',
+        company       VARCHAR(150) DEFAULT '',
+        message       TEXT         DEFAULT '',
+        status        VARCHAR(30)  DEFAULT 'new',
+        source        VARCHAR(100) DEFAULT 'cf7',
+        created_at    DATETIME     DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (id)
+    ) $charset;";
+
+    require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+    dbDelta($sql);
+
+    update_option('quantyss_db_version', '1.0.0');
+}
+
+require_once QUANTYSS_PATH . 'includes/leads-handler.php';
+require_once QUANTYSS_PATH . 'includes/admin/leads.php';
